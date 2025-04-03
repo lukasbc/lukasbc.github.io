@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+}
+.portfolio {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.project {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease;
+    display: block;
+}
+.project:hover {
+    transform: scale(1.05);
+}
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.project h2 {
+    margin-top: 15px;
+    font-size: 1.5em;
+}
+.project p {
+    color: #555;
+}
+/* Style pour le lien pour enlever la décoration par défaut */
+a.project-link {
+    text-decoration: none;
+    color: inherit;
+}
