@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Ludoie';
-  src: url("../fonts/LudoieFont.ttf") format('truetype');
+  src: url("../fonts/PoissonLanterneFont.ttf") format('truetype');
   font-weight: normal;
   font-style: initial;
 }
@@ -9,12 +9,12 @@
 body, html {
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a;
+  background-color: #8C7355;
   color: #eaeaea;
   font-family: "Ludoie";
-  background-image: url("../images/Ludoie/BackGround.png");
+  background-image: url("../images/PoissonLanterne/BackGround.png");
   background-size: auto auto;
-  background-repeat: repeat;
+  background-repeat: repeat;  
   background-attachment: fixed;
 }
 
@@ -28,9 +28,9 @@ main {
   max-width: 960px;
   margin: 40px auto;
   padding: 20px;
-  background: rgba(125, 161, 131, 0.9);
+  background: rgba(139, 115, 85,0.7);
   border-radius: 4px;
-  border: 10px solid rgba(197,160,36,1);
+  border: 0px solid rgba(197,160,36,1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -101,7 +101,6 @@ b{
 
 .video-player iframe {
   width: 100%;
-  max-width: 640px;
   height: auto;
   aspect-ratio: 16 / 9;
 }
@@ -191,9 +190,9 @@ button {
   font-size: 18px;
   font-weight: bold;
   color: #fff;
-  background-color: rgb(243, 96, 43);
+  background-color: #998a77;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: block;
@@ -201,7 +200,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(175, 70, 31);
+  background-color: #9A6E3A;
 }
 
 

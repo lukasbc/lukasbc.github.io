@@ -4,14 +4,45 @@
     <meta name="robots" content="noindex">
     <meta charset="UTF-8">
     <title>Portfolio Lukas</title>
+    <link rel="icon" type="image/png" href="assets/images/PortfolioIcon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="assets/css/styleindex.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@latest/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@latest/examples/jsm/"
+        }
+      }
+    </script>
 </head>
 <body>
+    <button id="view-toggle" style="position: fixed; top: 20px; right: 20px; z-index: 1002; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold;">Passer en vue 2D</button>
+    <div id="three-container"></div>
+    <div id="hover-overlay" style="position: absolute; display: none; pointer-events: none; transition: opacity 0.3s ease; opacity: 0; transform: translate(-50%, -100%);">
+        <img id="hover-image" src="" alt="Hover Icon" style="width: 150px; border-radius: 10px; border: 2px solid white;">
+    </div>
+    <header>
+      <h1>Lukas Busse-Côté</h1>
+      <p>Découvrez mes projets et réalisations</p>
+    </header>
     <div class="portfolio" id="projectsContainer"></div>
 
-  <script>
+    <div id="project-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+        <div style="position:relative; width:90%; height:90%; background:white; border-radius:10px; overflow:hidden; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+            <button id="close-overlay" style="position:absolute; top:20px; right:20px; z-index:1001; padding: 10px 20px; cursor:pointer; background: #ff4444; color: white; border: none; border-radius: 5px; font-weight: bold;">Fermer</button>
+            <iframe id="project-iframe" src="" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+    </div>
+
+  <script type="module">
     const projects = [
+      {
+        title: "IQ Expander Restored",
+        description: "Un ancien jeu vidéo de puzzle point-and-click restauré pour les ordinateurs modernes.",
+        image: "assets/images/IqExpander/RestoredIcon.png",
+        link: "iqexpander.html"
+      },
       {
         title: "Ludoie",
         description: "Jeu vidéo combinant le jeu de l'oie et les petits chevaux!",
@@ -19,10 +50,10 @@
         link: "ludoie.html"
       },
       {
-        title: "IQ Expander Restored",
-        description: "Un ancien jeu vidéo de puzzle point-and-click restauré pour les ordinateurs modernes.",
-        image: "assets/images/IqExpander/RestoredIcon.png",
-        link: "iqexpander.html"
+        title: "Poisson Lanterne",
+        description: "Jeu vidéo de puzzle jouant sur les phénomènes lumineux.",
+        image: "assets/images/PoissonLanterne/PoissonLanterneIcon.png",
+        link: "poisson_lanterne.html"
       },
       {
         title: "Metroid Prime VR",
@@ -31,7 +62,6 @@
         link: "metroidvr.html"
       },
     ];
-
 
     const container = document.getElementById('projectsContainer');
 
@@ -59,7 +89,42 @@
       a.appendChild(div);
       container.appendChild(a);
     });
+
+    import { pauseScene, resumeScene } from './assets/js/index-three.js';
+
+    const toggleBtn = document.getElementById('view-toggle');
+    const threeContainer = document.getElementById('three-container');
+    const projectsContainer = document.getElementById('projectsContainer');
+    const header = document.querySelector('header');
+
+    function setView(viewMode) {
+      if (viewMode === '2D') {
+        threeContainer.style.display = 'none';
+        projectsContainer.style.display = 'flex';
+        header.style.display = 'block';
+        toggleBtn.textContent = 'Passer en vue 3D';
+        pauseScene();
+        localStorage.setItem('viewMode', '2D');
+      } else {
+        threeContainer.style.display = 'block';
+        projectsContainer.style.display = 'none';
+        header.style.display = 'none';
+        toggleBtn.textContent = 'Passer en vue 2D';
+        resumeScene();
+        localStorage.setItem('viewMode', '3D');
+      }
+    }
+
+    const isMobile = window.innerWidth <= 768;
+    const defaultView = isMobile ? '2D' : '3D';
+    const savedView = localStorage.getItem('viewMode') || defaultView;
+    setView(savedView);
+
+    toggleBtn.addEventListener('click', () => {
+      const currentMode = localStorage.getItem('viewMode');
+      setView(currentMode === '3D' ? '2D' : '3D');
+    });
   </script>
-    </div>
+  <script type="module" src="assets/js/index-three.js"></script>
 </body>
 </html>

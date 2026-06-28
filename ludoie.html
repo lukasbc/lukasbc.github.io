@@ -174,7 +174,7 @@
     </h2>
     
     <div class="image-grid-large">
-      <img class="logo" src="assets/images/Ludoie/LudoieIcon.png" alt="Logo principal">
+      <img class="logo" src="assets/images/Ludoie/LudoieIconLogo.png" alt="Logo principal">
 
       <div class="playernb-icons">
         <img src="assets/images/Ludoie/MenuIcons/2Players.png" alt="Bouton deux joueurs">
@@ -235,7 +235,7 @@
   </main>
 
   <footer>
-    <button onclick="window.location.href='index.html';">
+    <button onclick="if(window.parent && window.parent.closeBook) { window.parent.closeBook(); } else { window.location.href='index.html'; }">
      ← Retour au portfolio
     </button>
   </footer>
