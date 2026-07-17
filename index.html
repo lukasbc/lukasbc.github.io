@@ -17,16 +17,51 @@
     </script>
 </head>
 <body>
-    <button id="view-toggle" style="position: fixed; top: 20px; right: 20px; z-index: 1002; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold;">Passer en vue 2D</button>
+    <button id="view-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 1002; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold;">Passer en vue 2D</button>
     <div id="three-container"></div>
     <div id="hover-overlay" style="position: absolute; display: none; pointer-events: none; transition: opacity 0.3s ease; opacity: 0; transform: translate(-50%, -100%);">
         <img id="hover-image" src="" alt="Hover Icon" style="width: 150px; border-radius: 10px; border: 2px solid white;">
     </div>
-    <header>
-      <h1>Lukas Busse-Côté</h1>
-      <p>Découvrez mes projets et réalisations</p>
+    <header id="home">
+      <div class="header-container">
+        <h1>Lukas Busse-Côté</h1>
+        <nav class="site-nav">
+          <a href="#home">Accueil</a>
+          <a href="#projects">Projets</a>
+          <a href="#connect">Contact</a>
+        </nav>
+      </div>
     </header>
-    <div class="portfolio" id="projectsContainer"></div>
+    <section id="about-me" class="about-me animate__animated animate__fadeInUp">
+      <img src="assets/images/Profile.png" alt="Lukas Busse-Côté" class="about-photo">
+      <div class="about-content">
+        <h2>Ingénieur en Informatique Graphique</h2>
+        <p>Disponible dès Septembre 2026. <br> Ouvert à toute opportunité.</p>
+        <div class="about-links">
+          <a href="/assets/cv/CV_2026_FR.pdf" class="about-btn" target="_blank" rel="noopener">Lire mon CV</a>
+          <a href="https://github.com/lukasbc" class="about-btn about-btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+    <div class="projects-section">
+      <h2 class="projects-title" id="projects">Projets</h2>
+      <div class="portfolio" id="projectsContainer"></div>
+    </div>
+
+    <div class="connect-section" id="connect">
+      <h2 class="connect-title">Contact</h2>
+      <div class="connect-card animate__animated animate__fadeInUp">
+        <div class="connect-item">
+          <span class="connect-label">Email</span>
+          <a class="connect-value">lukas.bussecote@gmail.com</a>
+        </div>
+        <div class="connect-item">
+          <span class="connect-label">Lieu</span>
+          <span class="connect-value">Lyon, France</span>
+        </div>
+        <a href="https://github.com/lukasbc" class="about-btn" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
 
     <div id="project-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
         <div style="position:relative; width:90%; height:90%; background:white; border-radius:10px; overflow:hidden; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
@@ -96,12 +131,18 @@
     const threeContainer = document.getElementById('three-container');
     const projectsContainer = document.getElementById('projectsContainer');
     const header = document.querySelector('header');
+    const aboutMe = document.getElementById('about-me');
+    const projectsSection = document.querySelector('.projects-section');
+    const connectSection = document.querySelector('.connect-section');
 
     function setView(viewMode) {
       if (viewMode === '2D') {
         threeContainer.style.display = 'none';
         projectsContainer.style.display = 'flex';
         header.style.display = 'block';
+        aboutMe.style.display = 'flex';
+        projectsSection.style.display = 'block';
+        connectSection.style.display = 'block';
         toggleBtn.textContent = 'Passer en vue 3D';
         pauseScene();
         localStorage.setItem('viewMode', '2D');
@@ -109,15 +150,16 @@
         threeContainer.style.display = 'block';
         projectsContainer.style.display = 'none';
         header.style.display = 'none';
+        aboutMe.style.display = 'none';
+        projectsSection.style.display = 'none';
+        connectSection.style.display = 'none';
         toggleBtn.textContent = 'Passer en vue 2D';
         resumeScene();
         localStorage.setItem('viewMode', '3D');
       }
     }
 
-    const isMobile = window.innerWidth <= 768;
-    const defaultView = isMobile ? '2D' : '3D';
-    const savedView = localStorage.getItem('viewMode') || defaultView;
+    const savedView = localStorage.getItem('viewMode') || '2D';
     setView(savedView);
 
     toggleBtn.addEventListener('click', () => {
