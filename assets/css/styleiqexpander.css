@@ -14,6 +14,8 @@ body, html {
   font-family: 'IqExpander', sans-serif;
   background-image: url("../images/IqExpander/BackGround.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 header img, footer img {
