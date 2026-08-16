@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8">
+  <title>Projet 150H: Poisson Lanterne</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="assets/css/stylegarvis.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+
+
+  <main>
+    <img src="assets/images/GARVIS/GarvisText.png" alt="Logo du Projet 150H" class="content-image">
+
+
+    <h1>Présentation et contexte</h1>
+
+    <p>
+      Au cours de mon stage de fin de Master en Imagerie et 3D j'ai éffectué un stage de 
+      recherche au sein du laboratoire <b><a href="https://liris.cnrs.fr"><u>LIRIS</u></a></b> durant 
+      lequel je me suis focalisé sur des graphes issus de la surveillance réseau et système 
+      informatique avec les noeuds représentant des machines ou des ressources et les arêtes 
+      les différents flux et évènements du système. Ces graphes représentent des jumeaux numériques 
+      pour les systèmes informatiques.
+    </p>
+
+    <p>
+      Le stage a eu pour objectif principal d'explorer une immersion dans ces jumeaux numériques 
+      en implémentant des algorithmes adaptés à la mise en forme et au rendu immersif de ces graphes 
+      (layouts 3D, clustering) permettant des interactions 
+      naturelles avec le graphe en AR (sélection de noeuds, filtrage, zoom, 
+      exploration par communautés).
+    </p>
+
+    <figure>
+      <img src="assets/images/GARVIS/Header.png">
+      <p><b>Trois panneaux montrant G.A.R.V.I.S. en réalité augmentée</b></p>
+    </figure>
+
+    <figure>
+      <img src="assets/images/GARVIS/Model.png">
+      <p><b>Architecture de G.A.R.V.I.S. : Intégration de la détection en flux et de la visualisation immersive</b></p>
+    </figure>
+
+    <h1>Problématique</h1>
+
+    <p>
+      Explorer un graphe de grande taille est un défi réel, que ce soit en cybersécurité 
+      ou en analyse de réseaux. Les outils de visualisation classiques atteignent 
+      vite leurs limites: sur un écran 2D, un graphe dense devient rapidement illisible, 
+      les patterns suspects se noient dans le bruit visuel et l'analyste se retrouve à 
+      reconstruire manuellement ce que l'outil devrait lui montrer clairement.
+    </p>
+
+    <p>
+      La réalité augmentée offre une réponse à ce problème: en passant à un 
+      espace 3D et immersif, elle permet de percevoir intuitivement la structure 
+      d'un graphe et ses dynamiques, là où un écran 2D échoue.
+    </p>
+
+
+    <h1>Fonctionnalités</h1>
+
+    <ul>
+      <li><b>Visualisation 3D en réalité augmentée</b>: exploration du graphe réseau 
+      dans un espace immersif avec ajustement dynamique de la taille et du niveau de détail</li>
+
+      <li><b>Navigation par clusters dynamiques</b>: les noeuds s'agrègent en clusters 
+      qui se déploient automatiquement à mesure que l'analyste s'en approche</li>
+
+      <li><b>Menu radial</b>: une impulsion du joystick fait apparaître une roue de sélection 
+        ancrée sur la manette droite. Les informations du noeud sélectionné et la personnalisation 
+        des modèles s'ancrent au poignet gauche et les filtres et paramètres 
+        s'affichent en panneaux flottants.</li>
+
+      <li><b>Détection d'anomalies en temps réel</b>: inspiré de 
+      <b><a href="https://dl.acm.org/doi/10.1145/3437963.3441806"><u>F-FADE</u></a></b>
+      , le moteur compare les fréquences de communication et détecte
+       toute déviation par rapport au comportement attendu et le signal 
+       directement dans l'espace virtuel</li>
+
+      <li><b>Filtre d'attaque</b>: isole instantanément le sous-graphe suspect en atténuant
+      le trafic normal pour une analyse ciblée</li>
+
+      <li><b>Investigation de noeuds</b>: la sélection d'un noeud met en évidence son 
+      voisinage immédiat et affiche ses détails dans le menu poignet</li>
+
+      <li><b>Reconstruction temporelle</b>: contrôles de simulation permettant de mettre 
+      en pause, rewind et rejouer les interactions à vitesse variable</li>
+    </ul>
+
+    <h1>Technologies et outils utilisés</h1>
+
+    <p>
+      L'application a été développée en <b>React</b> pour l'interface web, <b>Three.js</b> pour le 
+      rendu 3D et <b>WebXR</b> pour l'intégration de la réalité augmentée. Les tests ont été réalisés 
+      sur <b>Meta Quest 3</b> où l'application restitue une capture réelle de 547 936 flux impliquant 198 machines à 90 images par seconde.
+    </p>
+
+    <h1>Vidéo de présentation</h1>
+
+    <p>
+      Dans le cadre de la soumission d'un article de démonstration
+      à l'ACM CCS 2026, dont je suis premier auteur, j'ai réalisé une vidéo présentant les fonctionnalités de l'application:
+    </p>
+
+    <div class="video-player">
+      <iframe src="https://www.youtube.com/embed/PdNCIaFbAdg"
+        style="display: block; margin: 0 auto;"></iframe>
+    </div>
+
+
+
+
+    <h1>Bilan</h1>
+
+    <p>
+      Ce stage m'a permis de découvrir le fonctionnement d'un environnement de recherche et ses exigences, 
+      notamment le travail bibliographique en amont, qui a directement orienté les choix de conception de l'application. 
+      C'est à travers ce projet que j'ai découvert et approfondi Three.js et WebXR.
+    </p>
+
+    <p>
+      Le principal défi technique a été de tenir le temps réel: afficher un demi-million de flux réseau 
+      dans un casque sans jamais sacrifier la fluidité. Cela a demandé de refondre l'architecture en 
+      client-serveur, de remplacer le moteur de données hérité de Gephi-Lite et de passer à un rendu par 
+      instanciation GPU. (90 images par seconde sur Meta Quest 3)
+    </p>
+ 
+
+  </main>
+
+
+  <footer>
+    <button onclick="if(window.parent && window.parent.closeBook) { window.parent.closeBook(); } else { window.location.href='index.html'; }">
+     ← Retour au portfolio
+    </button>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/metroidvr.js"></script>
+</body>
+</html>

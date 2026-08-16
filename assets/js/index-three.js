@@ -148,21 +148,27 @@ function setupBook(gltf, position, iconPath, pageUrl) {
 
 // Mise en place des livres dans le shelf
 function loadBooks() {
-    loader.load('assets/models/Book1_PoissonLanterne.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(0.3, 2.219, 0), 'assets/images/PoissonLanterne/PoissonLanterneIcon.png', 'poisson_lanterne.html');
-    });
 
-    loader.load('assets/models/Book1_Metroid.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(0.8, 2.219, 0), 'assets/images/MetroidVR/MetroidVRIcon.png', 'metroidvr.html');
+    loader.load('assets/models/Book1_IQExpander.glb', (gltf) => {
+        setupBook(gltf, new THREE.Vector3(-.8, 2.219, 0), 'assets/images/IqExpander/RestoredIcon.png', 'iqexpander.html');
     });
 
 
     loader.load('assets/models/Book1_Ludoie.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(-.3, 2.219, 0), 'assets/images/Ludoie/LudoieIcon.png', 'ludoie.html');
+        setupBook(gltf, new THREE.Vector3(-.4, 2.219, 0), 'assets/images/Ludoie/LudoieIcon.png', 'ludoie.html');
     });
 
-    loader.load('assets/models/Book1_IQExpander.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(-0.8, 2.219, 0), 'assets/images/IqExpander/RestoredIcon.png', 'iqexpander.html');
+
+    loader.load('assets/models/Book1_Metroid.glb', (gltf) => {
+        setupBook(gltf, new THREE.Vector3(0, 2.219, 0), 'assets/images/MetroidVR/MetroidVRIcon.png', 'metroidvr.html');
+    });
+
+    loader.load('assets/models/Book1_PoissonLanterne.glb', (gltf) => {
+        setupBook(gltf, new THREE.Vector3(0.4, 2.219, 0), 'assets/images/PoissonLanterne/PoissonLanterneIcon.png', 'poisson_lanterne.html');
+    });
+
+    loader.load('assets/models/Book1_GARVIS.glb', (gltf) => {
+        setupBook(gltf, new THREE.Vector3(0.8, 2.219, 0), 'assets/images/GARVIS/Logo.png', 'garvis.html');
     });
 }
 
