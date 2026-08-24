@@ -178,7 +178,6 @@ camera.lookAt(0, 1.2, 0);
 
 // Gestion de la souris pour les intéraction dans la scène 3D
 window.addEventListener('mousemove', (e) => {
-    if (!isSceneActive) return;
     mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 });
@@ -192,7 +191,7 @@ function updateViewToggleVisibility() {
 }
 
 // Gestion des interactions
-window.addEventListener('click', (e) => {
+renderer.domElement.addEventListener('click', (e) => {
     if (!isSceneActive) return;
     if (document.getElementById('project-overlay').style.display === 'flex' || isAnimating) return;
 
@@ -318,7 +317,8 @@ function animate() {
     if (!isSceneActive) return;
     animationId = requestAnimationFrame(animate);
     const delta = clock.getDelta();
-    
+    const lerpFactor = 1 - Math.pow(1 - LERP_SPEED, delta * 60);
+
     // Update animations
     mixers.forEach(m => m.update(delta));
 
@@ -375,20 +375,20 @@ function animate() {
     // Mise a jour des états des livres
     books.forEach(b => {
         if (b === selectedBook) {
-            if (b.userData.targetPos) b.position.lerp(b.userData.targetPos, LERP_SPEED);
+            if (b.userData.targetPos) b.position.lerp(b.userData.targetPos, lerpFactor);
             if (b.userData.targetRot) {
-                b.rotation.x += (b.userData.targetRot.x - b.rotation.x) * LERP_SPEED;
-                b.rotation.y += (b.userData.targetRot.y - b.rotation.y) * LERP_SPEED;
-                b.rotation.z += (b.userData.targetRot.z - b.rotation.z) * LERP_SPEED;
+                b.rotation.x += (b.userData.targetRot.x - b.rotation.x) * lerpFactor;
+                b.rotation.y += (b.userData.targetRot.y - b.rotation.y) * lerpFactor;
+                b.rotation.z += (b.userData.targetRot.z - b.rotation.z) * lerpFactor;
             }
         } else {
             const target = b.userData.base.clone();
             if (b === hoveredBook) target.z += 0.3;
-            b.position.lerp(target, LERP_SPEED);
-            
-            b.rotation.x += (0 - b.rotation.x) * LERP_SPEED;
-            b.rotation.y += (Math.PI - b.rotation.y) * LERP_SPEED;
-            b.rotation.z += (0 - b.rotation.z) * LERP_SPEED;
+            b.position.lerp(target, lerpFactor);
+
+            b.rotation.x += (0 - b.rotation.x) * lerpFactor;
+            b.rotation.y += (Math.PI - b.rotation.y) * lerpFactor;
+            b.rotation.z += (0 - b.rotation.z) * lerpFactor;
         }
     });
 
