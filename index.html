@@ -3,6 +3,7 @@
 <head>
     <meta name="robots" content="noindex">
     <meta charset="UTF-8">
+    <script src="assets/js/pagelang.js"></script>
     <title>Portfolio Lukas</title>
     <link rel="icon" type="image/png" href="assets/images/PortfolioIcon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -17,7 +18,7 @@
     </script>
 </head>
 <body>
-    <button id="view-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 1002; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold;">Passer en vue 2D</button>
+    <button id="view-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 1002; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold;"><span data-lang="fr">Passer en vue 2D</span><span data-lang="en">Switch to 2D view</span></button>
     <div id="three-container"></div>
     <div id="hover-overlay" style="position: absolute; display: none; pointer-events: none; transition: opacity 0.3s ease; opacity: 0; transform: translate(-50%, -100%);">
         <img id="hover-image" src="" alt="Hover Icon" style="width: 150px; border-radius: 10px; border: 2px solid white;">
@@ -26,25 +27,39 @@
       <div class="header-container">
         <h1>Lukas Busse-Côté</h1>
         <nav class="site-nav">
-          <a href="#home">Accueil</a>
-          <a href="#projects">Projets</a>
+          <a href="#home"><span data-lang="fr">Accueil</span><span data-lang="en">Home</span></a>
+          <a href="#projects"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></a>
           <a href="#connect">Contact</a>
+          <div class="lang-menu">
+            <button id="lang-burger" class="lang-burger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Menu de langue">
+              <span class="lang-burger-bars" aria-hidden="true"></span>
+              <span id="lang-burger-label" class="lang-burger-label">FR</span>
+            </button>
+            <ul id="lang-dropdown" class="lang-dropdown" role="menu">
+              <li role="none"><button type="button" class="lang-option" role="menuitemradio" data-lang-value="fr">Français</button></li>
+              <li role="none"><button type="button" class="lang-option" role="menuitemradio" data-lang-value="en">English</button></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
     <section id="about-me" class="about-me animate__animated animate__fadeInUp">
       <img src="assets/images/Profile.png" alt="Lukas Busse-Côté" class="about-photo">
       <div class="about-content">
-        <h2>Ingénieur en Informatique Graphique</h2>
-        <p>Ouvert à toute opportunité.</p>
+        <h2>
+          <span data-lang="fr">Ingénieur Logiciel</span><span data-lang="en">Software Engineer</span><span class="role-specialty"><span data-lang="fr"> Spécialisé en informatique graphique, vision et systèmes temps réel</span><span data-lang="en"> Specialized in computer graphics, vision and real-time systems</span></span>
+        </h2>
+        <p data-lang="fr">Ouvert à toute opportunité à temps plein (Europe & Canada)</p>
+        <p data-lang="en">Open to full-time opportunities (Europe & Canada)</p>
         <div class="about-links">
-          <a href="/assets/cv/CV_2026_FR.pdf" class="about-btn" target="_blank" rel="noopener">Lire mon CV</a>
+          <span data-lang="fr"><a href="/assets/cv/CV_2026_FR.pdf" class="about-btn" target="_blank" rel="noopener">Lire mon CV</a></span>
+          <span data-lang="en"><a href="/assets/cv/CV_2026_EN.pdf" class="about-btn" target="_blank" rel="noopener">Read my CV</a></span>
           <a href="https://github.com/lukasbc" class="about-btn about-btn-secondary" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </section>
     <div class="projects-section">
-      <h2 class="projects-title" id="projects">Projets</h2>
+      <h2 class="projects-title" id="projects"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></h2>
       <div class="portfolio" id="projectsContainer"></div>
     </div>
 
@@ -56,7 +71,7 @@
           <a class="connect-value">lukas.bussecote@gmail.com</a>
         </div>
         <div class="connect-item">
-          <span class="connect-label">Lieu</span>
+          <span class="connect-label"><span data-lang="fr">Lieu</span><span data-lang="en">Location</span></span>
           <span class="connect-value">Strasbourg, France</span>
         </div>
         <a href="https://github.com/lukasbc" class="about-btn" target="_blank" rel="noopener">GitHub</a>
@@ -65,7 +80,7 @@
 
     <div id="project-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
         <div style="position:relative; width:90%; height:90%; background:white; border-radius:10px; overflow:hidden; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
-            <button id="close-overlay" style="position:absolute; top:20px; right:20px; z-index:1001; padding: 10px 20px; cursor:pointer; background: #ff4444; color: white; border: none; border-radius: 5px; font-weight: bold;">Fermer</button>
+            <button id="close-overlay" style="position:absolute; top:20px; right:20px; z-index:1001; padding: 10px 20px; cursor:pointer; background: #ff4444; color: white; border: none; border-radius: 5px; font-weight: bold;"><span data-lang="fr">Fermer</span><span data-lang="en">Close</span></button>
             <iframe id="project-iframe" src="" style="width:100%; height:100%; border:none;"></iframe>
         </div>
     </div>
@@ -74,31 +89,46 @@
     const projects = [
       {
         title: "IQ Expander Restored",
-        description: "Un ancien jeu vidéo de puzzle point-and-click restauré pour les ordinateurs modernes.",
+        description: {
+          fr: "Un ancien jeu vidéo de puzzle point-and-click restauré pour les ordinateurs modernes.",
+          en: "An old point-and-click puzzle video game restored for modern computers."
+        },
         image: "assets/images/IqExpander/RestoredIcon.png",
         link: "iqexpander.html"
       },
       {
         title: "Ludoie",
-        description: "Jeu vidéo combinant le jeu de l'oie et les petits chevaux!",
+        description: {
+          fr: "Jeu vidéo combinant le jeu de l'oie et les petits chevaux!",
+          en: "A video game combining Snakes and Ladders and Ludo!"
+        },
         image: "assets/images/Ludoie/LudoieIcon.png",
         link: "ludoie.html"
       },
       {
         title: "Poisson Lanterne",
-        description: "Jeu vidéo de puzzle jouant sur les phénomènes lumineux.",
+        description: {
+          fr: "Jeu vidéo de puzzle jouant sur les phénomènes lumineux.",
+          en: "A puzzle video game playing with light phenomena."
+        },
         image: "assets/images/PoissonLanterne/PoissonLanterneIcon.png",
         link: "poisson_lanterne.html"
       },
       {
         title: "Metroid Prime VR",
-        description: "Une courte expérience VR non officielle de Metroid Prime pour Oculus Quest 2.",
+        description: {
+          fr: "Une courte expérience VR non officielle de Metroid Prime pour Oculus Quest 2.",
+          en: "A short unofficial Metroid Prime VR experience for Oculus Quest 2."
+        },
         image: "assets/images/MetroidVR/MetroidVRIcon.png",
         link: "metroidvr.html"
       },
       {
         title: "G.A.R.V.I.S.",
-        description: "Outil d'exploration de graphes en réalité virtuelle pour des applications en cybersécurité.",
+        description: {
+          fr: "Outil d'exploration de graphes en réalité virtuelle pour des applications en cybersécurité.",
+          en: "A virtual reality graph exploration tool for cybersecurity applications."
+        },
         image: "assets/images/GARVIS/Logo.png",
         link: "garvis.html"
       },
@@ -123,13 +153,71 @@
       h2.textContent = project.title;
       div.appendChild(h2);
 
-      const p = document.createElement('p');
-      p.textContent = project.description;
-      div.appendChild(p);
+      const pFr = document.createElement('p');
+      pFr.dataset.lang = 'fr';
+      pFr.textContent = project.description.fr;
+      div.appendChild(pFr);
+
+      const pEn = document.createElement('p');
+      pEn.dataset.lang = 'en';
+      pEn.textContent = project.description.en;
+      div.appendChild(pEn);
 
       a.appendChild(div);
       container.appendChild(a);
     });
+
+    const langMenu = document.querySelector('.lang-menu');
+    const langBurger = document.getElementById('lang-burger');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const langBurgerLabel = document.getElementById('lang-burger-label');
+
+    function closeLangMenu() {
+      langMenu.classList.remove('open');
+      langBurger.setAttribute('aria-expanded', 'false');
+    }
+
+    function openLangMenu() {
+      langMenu.classList.add('open');
+      langBurger.setAttribute('aria-expanded', 'true');
+    }
+
+    function refreshLangUI() {
+      const lang = document.documentElement.lang;
+      langOptions.forEach(opt => {
+        const active = opt.dataset.langValue === lang;
+        opt.classList.toggle('active', active);
+        opt.setAttribute('aria-checked', active ? 'true' : 'false');
+      });
+      langBurgerLabel.textContent = lang.toUpperCase();
+    }
+
+    langBurger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langMenu.classList.contains('open') ? closeLangMenu() : openLangMenu();
+    });
+
+    langOptions.forEach(opt => {
+      opt.addEventListener('click', () => {
+        PageLang.set(opt.dataset.langValue);
+        refreshLangUI();
+        closeLangMenu();
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!langMenu.contains(e.target)) closeLangMenu();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLangMenu();
+    });
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lang') refreshLangUI();
+    });
+
+    refreshLangUI();
 
     import { pauseScene, resumeScene } from './assets/js/index-three.js';
 
@@ -141,6 +229,15 @@
     const projectsSection = document.querySelector('.projects-section');
     const connectSection = document.querySelector('.connect-section');
 
+    const toggleFrLabel = toggleBtn.querySelector('[data-lang="fr"]');
+    const toggleEnLabel = toggleBtn.querySelector('[data-lang="en"]');
+
+    function updateToggleLabel() {
+      const mode = localStorage.getItem('viewMode') || '2D';
+      toggleFrLabel.textContent = mode === '3D' ? 'Passer en vue 2D' : 'Passer en vue 3D';
+      toggleEnLabel.textContent = mode === '3D' ? 'Switch to 2D view' : 'Switch to 3D view';
+    }
+
     function setView(viewMode) {
       if (viewMode === '2D') {
         threeContainer.style.display = 'none';
@@ -149,7 +246,6 @@
         aboutMe.style.display = 'flex';
         projectsSection.style.display = 'block';
         connectSection.style.display = 'block';
-        toggleBtn.textContent = 'Passer en vue 3D';
         pauseScene();
         localStorage.setItem('viewMode', '2D');
       } else {
@@ -159,10 +255,10 @@
         aboutMe.style.display = 'none';
         projectsSection.style.display = 'none';
         connectSection.style.display = 'none';
-        toggleBtn.textContent = 'Passer en vue 2D';
         resumeScene();
         localStorage.setItem('viewMode', '3D');
       }
+      updateToggleLabel();
     }
 
     const savedView = localStorage.getItem('viewMode') || '2D';

@@ -135,6 +135,128 @@ header h1 {
     border-bottom-color: white;
 }
 
+.lang-menu {
+    position: relative;
+}
+
+.lang-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 12px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-burger:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+}
+
+.lang-burger-bars,
+.lang-burger-bars::before,
+.lang-burger-bars::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.lang-burger-bars::before {
+    transform: translateY(-6px);
+}
+
+.lang-burger-bars::after {
+    transform: translateY(4px);
+}
+
+.lang-menu.open .lang-burger-bars {
+    background: transparent;
+}
+
+.lang-menu.open .lang-burger-bars::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.lang-menu.open .lang-burger-bars::after {
+    transform: translateY(-2px) rotate(-45deg);
+}
+
+.lang-burger-label {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 150px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: rgba(20, 20, 20, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 1003;
+}
+
+.lang-menu.open .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.lang-option:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.lang-option.active {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.lang-option.active::after {
+    content: "\2713";
+    font-weight: 700;
+}
+
 header p {
     color: white;
     text-align: center;
@@ -188,11 +310,20 @@ header p.subtitle {
     color: #333;
 }
 
+.about-me h2 .role-specialty {
+    font-size: 0.50em;
+    font-weight: 400;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    line-height: 1.25;
+}
+
 .about-me p {
-    color: #666;
-    font-size: 1.25em;
+    color: #333;
+    font-size: 1.15em;
     line-height: 1.6;
-    margin: 0 0 25px 0;
+    margin: 0 0 15px 0;
 }
 
 .about-links {

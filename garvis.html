@@ -3,7 +3,8 @@
 <head>
   <meta name="robots" content="noindex">
   <meta charset="UTF-8">
-  <title>Projet 150H: Poisson Lanterne</title>
+  <script src="assets/js/pagelang.js"></script>
+  <title>G.A.R.V.I.S.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link rel="stylesheet" href="assets/css/stylegarvis.css">
@@ -17,95 +18,161 @@
     <img src="assets/images/GARVIS/GarvisText.png" alt="Logo du Projet 150H" class="content-image">
 
 
-    <h1>Présentation et contexte</h1>
+    <h1 data-lang="fr">Présentation et contexte</h1>
+    <h1 data-lang="en">Overview and context</h1>
 
-    <p>
-      Au cours de mon stage de fin de Master en Imagerie et 3D j'ai éffectué un stage de 
-      recherche au sein du laboratoire <b><a href="https://liris.cnrs.fr"><u>LIRIS</u></a></b> durant 
-      lequel je me suis focalisé sur des graphes issus de la surveillance réseau et système 
-      informatique avec les noeuds représentant des machines ou des ressources et les arêtes 
-      les différents flux et évènements du système. Ces graphes représentent des jumeaux numériques 
+    <p data-lang="fr">
+      Au cours de mon stage de fin de Master en Imagerie et 3D j'ai éffectué un stage de
+      recherche au sein du laboratoire <b><a href="https://liris.cnrs.fr"><u>LIRIS</u></a></b> durant
+      lequel je me suis focalisé sur des graphes issus de la surveillance réseau et système
+      informatique avec les noeuds représentant des machines ou des ressources et les arêtes
+      les différents flux et évènements du système. Ces graphes représentent des jumeaux numériques
       pour les systèmes informatiques.
     </p>
+    <p data-lang="en">
+      During my end-of-master's internship in Imaging and 3D, I did a research internship
+      at the <b><a href="https://liris.cnrs.fr"><u>LIRIS</u></a></b> laboratory, during which
+      I focused on graphs coming from network and computer-system monitoring, with the nodes
+      representing machines or resources and the edges the various flows and events of the
+      system. These graphs are digital twins of computer systems.
+    </p>
 
-    <p>
-      Le stage a eu pour objectif principal d'explorer une immersion dans ces jumeaux numériques 
-      en implémentant des algorithmes adaptés à la mise en forme et au rendu immersif de ces graphes 
-      (layouts 3D, clustering) permettant des interactions 
-      naturelles avec le graphe en AR (sélection de noeuds, filtrage, zoom, 
+    <p data-lang="fr">
+      Le stage a eu pour objectif principal d'explorer une immersion dans ces jumeaux numériques
+      en implémentant des algorithmes adaptés à la mise en forme et au rendu immersif de ces graphes
+      (layouts 3D, clustering) permettant des interactions
+      naturelles avec le graphe en AR (sélection de noeuds, filtrage, zoom,
       exploration par communautés).
+    </p>
+    <p data-lang="en">
+      The main goal of the internship was to explore an immersion into these digital twins
+      by implementing algorithms suited to laying out and immersively rendering these graphs
+      (3D layouts, clustering), enabling natural interactions with the graph in AR
+      (node selection, filtering, zoom, exploration by communities).
     </p>
 
     <figure>
       <img src="assets/images/GARVIS/Header.png">
-      <p><b>Trois panneaux montrant G.A.R.V.I.S. en réalité augmentée</b></p>
+      <p data-lang="fr"><b>Trois panneaux montrant G.A.R.V.I.S. en réalité augmentée</b></p>
+      <p data-lang="en"><b>Three panels showing G.A.R.V.I.S. in augmented reality</b></p>
     </figure>
 
     <figure>
       <img src="assets/images/GARVIS/Model.png">
-      <p><b>Architecture de G.A.R.V.I.S. : Intégration de la détection en flux et de la visualisation immersive</b></p>
+      <p data-lang="fr"><b>Architecture de G.A.R.V.I.S. : Intégration de la détection en flux et de la visualisation immersive</b></p>
+      <p data-lang="en"><b>G.A.R.V.I.S. architecture: integrating streaming detection and immersive visualisation</b></p>
     </figure>
 
-    <h1>Problématique</h1>
+    <h1 data-lang="fr">Problématique</h1>
+    <h1 data-lang="en">The problem</h1>
 
-    <p>
-      Explorer un graphe de grande taille est un défi réel, que ce soit en cybersécurité 
-      ou en analyse de réseaux. Les outils de visualisation classiques atteignent 
-      vite leurs limites: sur un écran 2D, un graphe dense devient rapidement illisible, 
-      les patterns suspects se noient dans le bruit visuel et l'analyste se retrouve à 
+    <p data-lang="fr">
+      Explorer un graphe de grande taille est un défi réel, que ce soit en cybersécurité
+      ou en analyse de réseaux. Les outils de visualisation classiques atteignent
+      vite leurs limites: sur un écran 2D, un graphe dense devient rapidement illisible,
+      les patterns suspects se noient dans le bruit visuel et l'analyste se retrouve à
       reconstruire manuellement ce que l'outil devrait lui montrer clairement.
     </p>
+    <p data-lang="en">
+      Exploring a large graph is a real challenge, whether in cybersecurity
+      or in network analysis. Classic visualisation tools quickly hit their limits:
+      on a 2D screen, a dense graph rapidly becomes unreadable, suspicious patterns
+      drown in the visual noise, and the analyst ends up manually rebuilding what the
+      tool should be showing clearly.
+    </p>
 
-    <p>
-      La réalité augmentée offre une réponse à ce problème: en passant à un 
-      espace 3D et immersif, elle permet de percevoir intuitivement la structure 
+    <p data-lang="fr">
+      La réalité augmentée offre une réponse à ce problème: en passant à un
+      espace 3D et immersif, elle permet de percevoir intuitivement la structure
       d'un graphe et ses dynamiques, là où un écran 2D échoue.
+    </p>
+    <p data-lang="en">
+      Augmented reality offers an answer to this problem: by moving to an immersive
+      3D space, it lets you intuitively perceive the structure of a graph and its
+      dynamics, where a 2D screen fails.
     </p>
 
 
-    <h1>Fonctionnalités</h1>
+    <h1 data-lang="fr">Fonctionnalités</h1>
+    <h1 data-lang="en">Features</h1>
 
-    <ul>
-      <li><b>Visualisation 3D en réalité augmentée</b>: exploration du graphe réseau 
+    <ul data-lang="fr">
+      <li><b>Visualisation 3D en réalité augmentée</b>: exploration du graphe réseau
       dans un espace immersif avec ajustement dynamique de la taille et du niveau de détail</li>
 
-      <li><b>Navigation par clusters dynamiques</b>: les noeuds s'agrègent en clusters 
+      <li><b>Navigation par clusters dynamiques</b>: les noeuds s'agrègent en clusters
       qui se déploient automatiquement à mesure que l'analyste s'en approche</li>
 
-      <li><b>Menu radial</b>: une impulsion du joystick fait apparaître une roue de sélection 
-        ancrée sur la manette droite. Les informations du noeud sélectionné et la personnalisation 
-        des modèles s'ancrent au poignet gauche et les filtres et paramètres 
+      <li><b>Menu radial</b>: une impulsion du joystick fait apparaître une roue de sélection
+        ancrée sur la manette droite. Les informations du noeud sélectionné et la personnalisation
+        des modèles s'ancrent au poignet gauche et les filtres et paramètres
         s'affichent en panneaux flottants.</li>
 
-      <li><b>Détection d'anomalies en temps réel</b>: inspiré de 
+      <li><b>Détection d'anomalies en temps réel</b>: inspiré de
       <b><a href="https://dl.acm.org/doi/10.1145/3437963.3441806"><u>F-FADE</u></a></b>
       , le moteur compare les fréquences de communication et détecte
-       toute déviation par rapport au comportement attendu et le signal 
+       toute déviation par rapport au comportement attendu et le signal
        directement dans l'espace virtuel</li>
 
       <li><b>Filtre d'attaque</b>: isole instantanément le sous-graphe suspect en atténuant
       le trafic normal pour une analyse ciblée</li>
 
-      <li><b>Investigation de noeuds</b>: la sélection d'un noeud met en évidence son 
+      <li><b>Investigation de noeuds</b>: la sélection d'un noeud met en évidence son
       voisinage immédiat et affiche ses détails dans le menu poignet</li>
 
-      <li><b>Reconstruction temporelle</b>: contrôles de simulation permettant de mettre 
+      <li><b>Reconstruction temporelle</b>: contrôles de simulation permettant de mettre
       en pause, rewind et rejouer les interactions à vitesse variable</li>
     </ul>
+    <ul data-lang="en">
+      <li><b>3D visualisation in augmented reality</b>: exploring the network graph
+      in an immersive space with dynamic adjustment of size and level of detail</li>
 
-    <h1>Technologies et outils utilisés</h1>
+      <li><b>Navigation by dynamic clusters</b>: nodes aggregate into clusters
+      that automatically expand as the analyst gets closer to them</li>
 
-    <p>
-      L'application a été développée en <b>React</b> pour l'interface web, <b>Three.js</b> pour le 
-      rendu 3D et <b>WebXR</b> pour l'intégration de la réalité augmentée. Les tests ont été réalisés 
+      <li><b>Radial menu</b>: a flick of the joystick brings up a selection wheel
+        anchored to the right controller. The selected node's information and model
+        customisation anchor to the left wrist, and filters and parameters
+        appear as floating panels.</li>
+
+      <li><b>Real-time anomaly detection</b>: inspired by
+      <b><a href="https://dl.acm.org/doi/10.1145/3437963.3441806"><u>F-FADE</u></a></b>
+      , the engine compares communication frequencies and detects
+       any deviation from expected behaviour, flagging it
+       directly in the virtual space</li>
+
+      <li><b>Attack filter</b>: instantly isolates the suspicious subgraph by dimming
+      normal traffic for a focused analysis</li>
+
+      <li><b>Node investigation</b>: selecting a node highlights its
+      immediate neighbourhood and shows its details in the wrist menu</li>
+
+      <li><b>Temporal replay</b>: simulation controls to pause,
+      rewind and replay the interactions at variable speed</li>
+    </ul>
+
+    <h1 data-lang="fr">Technologies et outils utilisés</h1>
+    <h1 data-lang="en">Technologies and tools used</h1>
+
+    <p data-lang="fr">
+      L'application a été développée en <b>React</b> pour l'interface web, <b>Three.js</b> pour le
+      rendu 3D et <b>WebXR</b> pour l'intégration de la réalité augmentée. Les tests ont été réalisés
       sur <b>Meta Quest 3</b> où l'application restitue une capture réelle de 547 936 flux impliquant 198 machines à 90 images par seconde.
     </p>
+    <p data-lang="en">
+      The application was built with <b>React</b> for the web interface, <b>Three.js</b> for the
+      3D rendering and <b>WebXR</b> for the augmented reality integration. Testing was done
+      on <b>Meta Quest 3</b>, where the application renders a real capture of 547,936 flows involving 198 machines at 90 frames per second.
+    </p>
 
-    <h1>Vidéo de présentation</h1>
+    <h1 data-lang="fr">Vidéo de présentation</h1>
+    <h1 data-lang="en">Presentation video</h1>
 
-    <p>
-      Dans le cadre de la soumission d'un article de démonstration
-      à l'ACM CCS 2026, dont je suis premier auteur, j'ai réalisé une vidéo présentant les fonctionnalités de l'application:
+    <p data-lang="fr">
+      Dans le cadre de la soumission d'un article de démonstration, dont je suis premier auteur, j'ai réalisé une vidéo présentant les fonctionnalités de l'application:
+    </p>
+    <p data-lang="en">
+      As part of the submission of a demonstration paper, of which I am first author, I made a video presenting the application's features:
     </p>
 
     <div class="video-player">
@@ -116,28 +183,40 @@
 
 
 
-    <h1>Bilan</h1>
+    <h1 data-lang="fr">Bilan</h1>
+    <h1 data-lang="en">Takeaways</h1>
 
-    <p>
-      Ce stage m'a permis de découvrir le fonctionnement d'un environnement de recherche et ses exigences, 
-      notamment le travail bibliographique en amont, qui a directement orienté les choix de conception de l'application. 
+    <p data-lang="fr">
+      Ce stage m'a permis de découvrir le fonctionnement d'un environnement de recherche et ses exigences,
+      notamment le travail bibliographique en amont, qui a directement orienté les choix de conception de l'application.
       C'est à travers ce projet que j'ai découvert et approfondi Three.js et WebXR.
     </p>
+    <p data-lang="en">
+      This internship let me discover how a research environment works and what it demands,
+      in particular the upfront literature work, which directly shaped the design choices of the application.
+      It is through this project that I discovered and deepened my knowledge of Three.js and WebXR.
+    </p>
 
-    <p>
-      Le principal défi technique a été de tenir le temps réel: afficher un demi-million de flux réseau 
-      dans un casque sans jamais sacrifier la fluidité. Cela a demandé de refondre l'architecture en 
-      client-serveur, de remplacer le moteur de données hérité de Gephi-Lite et de passer à un rendu par 
+    <p data-lang="fr">
+      Le principal défi technique a été de tenir le temps réel: afficher un demi-million de flux réseau
+      dans un casque sans jamais sacrifier la fluidité. Cela a demandé de refondre l'architecture en
+      client-serveur, de remplacer le moteur de données hérité de Gephi-Lite et de passer à un rendu par
       instanciation GPU. (90 images par seconde sur Meta Quest 3)
     </p>
- 
+    <p data-lang="en">
+      The main technical challenge was keeping it real time: displaying half a million network flows
+      in a headset without ever sacrificing smoothness. This meant reworking the architecture into a
+      client-server model, replacing the data engine inherited from Gephi-Lite and switching to
+      GPU-instanced rendering. (90 frames per second on Meta Quest 3)
+    </p>
+
 
   </main>
 
 
   <footer>
     <button onclick="if(window.parent && window.parent.closeBook) { window.parent.closeBook(); } else { window.location.href='index.html'; }">
-     ← Retour au portfolio
+     <span data-lang="fr">← Retour au portfolio</span><span data-lang="en">← Back to portfolio</span>
     </button>
   </footer>
 
