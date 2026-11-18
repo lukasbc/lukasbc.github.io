@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8">
+  <script src="assets/js/pagelang.js"></script>
+  <title>Planification d'ablation de tumeur en 3D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/css/styleablation.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+  <main>
+    <h1 class="page-title" data-lang="fr">Planification d'ablation de tumeur en 3D</h1>
+    <h1 class="page-title" data-lang="en">3D Tumour Ablation Planning</h1>
+
+    <!-- TODO: image principale du projet -->
+    <!-- <img src="assets/images/Ablation/Header.png" alt="Planification d'ablation de tumeur en 3D" class="content-image"> -->
+
+    <h2 data-lang="fr">Présentation et contexte</h2>
+    <h2 data-lang="en">Overview and context</h2>
+
+    <p data-lang="fr">
+      Module de planification d’ablation thermique du foie, développé en Python pour 3D Slicer. 
+      Il fait partie d’un projet de CAMS (Computer-Assisted Medicine and Surgery), réalisé en équipe de 2 
+      avec le jeu de données de scène hépatique fourni pour le projet.
+    </p>
+    <p data-lang="en">
+      A thermal ablation planning module for the liver, developed in Python for 3D Slicer.
+      It is part of a CAMS (Computer-Assisted Medicine and Surgery) project, carried out in a team of 2
+      using the liver scene dataset provided for the project.
+    </p>
+
+    <h2 data-lang="fr">Problématique</h2>
+    <h2 data-lang="en">The problem</h2>
+
+    <p data-lang="fr">
+      Lors d’une ablation thermique, le chirurgien doit détruire la tumeur tout en évitant les vaisseaux 
+      importants et en épargnant le tissu sain. Ce module aide à planifier le geste: 
+      il permet de placer des aiguilles, de voir en temps réel leur distance aux vaisseaux, 
+      et d’estimer si la zone d’ablation couvre bien la tumeur.
+    </p>
+    <p data-lang="en">
+      During a thermal ablation, the surgeon must destroy the tumour while avoiding major blood vessels
+      and sparing healthy tissue. This module helps plan the procedure:
+      it lets you place needles, see their distance to the vessels in real time,
+      and estimate whether the ablation zone fully covers the tumour.
+    </p>
+
+    <h2 data-lang="fr">Fonctionnalités</h2>
+    <h2 data-lang="en">Features</h2>
+
+    <ul data-lang="fr">
+      <li><b>Création et déplacement d’aiguilles</b>: deux aiguilles, définies chacune par une pointe et une base, 
+        que l’on déplace avec la souris. Un tube suit les points et une sphère d’ablation de 10 mm de rayon se 
+        recentre à 5 mm de la pointe, dans l’axe de l’aiguille.</li>
+
+      <li><b>Placement automatique</b>: le module repère le modèle de la tumeur, calcule son centre de masse et y 
+        place les pointes.</li>
+
+      <li><b>Distances aux vaisseaux</b>: pour chaque aiguille, la distance minimale à l’artère, à la veine porte 
+        et au système veineux, ainsi que la distance entre les aiguilles. L’aiguille la plus proche d’un vaisseau 
+        passe en rouge.</li>
+
+      <li><b>Volumes et efficacité</b>: la tumeur et les sphères sont converties en voxels de 1 mm³ pour calculer 
+        le volume de la tumeur, le volume détruit, <b>la couverture</b> (part de la tumeur détruite) et la <b>spécificité</b> 
+        (part du volume détruit qui est bien de la tumeur, donc le tissu sain épargné).</li>
+
+      <li><b>Mise à jour en temps réel</b>: les distances, les couleurs et les volumes se recalculent quand on déplace un point, 
+        limités à une fois toutes les 0,1 s pour éviter les ralentissements.</li>
+    </ul>
+    <ul data-lang="en">
+      <li><b>Creating and moving needles</b>: two needles, each defined by a tip and a base,
+        which can be moved with the mouse. A tube follows the points and an ablation sphere with a 10 mm radius
+        re-centres itself 5 mm from the tip, along the needle's axis.</li>
+
+      <li><b>Automatic placement</b>: the module finds the tumour model, computes its centre of mass and
+        places the needle tips there.</li>
+
+      <li><b>Distances to vessels</b>: for each needle, the minimum distance to the artery, the portal vein
+        and the venous system, as well as the distance between the needles. The needle closest to a vessel
+        turns red.</li>
+
+      <li><b>Volumes and effectiveness</b>: the tumour and the spheres are converted into 1 mm³ voxels to compute
+        the tumour volume, the destroyed volume, <b>coverage</b> (the share of the tumour destroyed) and <b>specificity</b>
+        (the share of the destroyed volume that is actually tumour, i.e. how much healthy tissue is spared).</li>
+
+      <li><b>Real-time updates</b>: distances, colours and volumes are recomputed whenever a point is moved,
+        throttled to once every 0.1 s to avoid slowdowns.</li>
+    </ul>
+
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/images/Ablation/Screenshot01.png" alt="Image 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/Ablation/Screenshot02.png" alt="Image 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/Ablation/Screenshot03.png" alt="Image 3">
+        </div>
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <h2 data-lang="fr">Technologies et outils utilisés</h2>
+    <h2 data-lang="en">Technologies and tools used</h2>
+
+    <p data-lang="fr">
+      Python, 3D Slicer (modules scriptés, markups), VTK (distances implicites à une surface, 
+      rastérisation de maillages en voxels), NumPy, interface Qt (panneau de résultats).
+    </p>
+    <p data-lang="en">
+      Python, 3D Slicer (scripted modules, markups), VTK (implicit distance to a surface,
+      mesh-to-voxel rasterisation), NumPy, Qt interface (results panel).
+    </p>
+
+    <h2 data-lang="fr">Vidéo de présentation</h2>
+    <h2 data-lang="en">Showcase video</h2>
+    <div class="video-player">
+      <iframe src="https://www.youtube.com/embed/myqE4Cs9WwY" allowfullscreen></iframe>
+    </div>
+
+    <h2 data-lang="fr">Bilan</h2>
+    <h2 data-lang="en">Takeaways</h2>
+
+    <p data-lang="fr">
+      Ce projet m'a appris à manipuler des modèles 3D médicaux (surfaces de tumeur et de vaisseaux),
+       à calculer des distances et des volumes à partir de maillages et à garder une interface 
+       réactive en recalculant sans bloquer l'utilisateur. La principale difficulté a été le 
+       calcul des volumes: transformer les surfaces en voxels, combiner les zones d'ablation 
+       et tenir compte des transformations des modèles. Il a aussi fallu limiter les recalculs 
+       pour éviter que l'interface rame. Le modèle d'ablation est volontairement simplifié 
+       (des sphères, pas de simulation thermique): une amélioration possible serait un modèle 
+       plus réaliste de la zone détruite.
+    </p>
+    <p data-lang="en">
+      This project taught me how to work with 3D medical models (tumour and vessel surfaces),
+      compute distances and volumes from meshes and keep the interface responsive
+      by recomputing without blocking the user. The main difficulty was computing
+      the volumes: turning the surfaces into voxels, combining the ablation zones
+      and taking the models transforms into account. I also had to limit the recomputations
+      to keep the interface from lagging. The ablation model is deliberately simplified (spheres, no thermal simulation):
+      a possible improvement would be a more realistic model of the destroyed zone.
+    </p>
+  </main>
+
+  <footer>
+    <button onclick="if(window.parent && window.parent.closeBook) { window.parent.closeBook(); } else { window.location.href='index.html'; }">
+      <span data-lang="fr">← Retour au portfolio</span><span data-lang="en">← Back to portfolio</span>
+    </button>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/metroidvr.js"></script>
+</body>
+</html>

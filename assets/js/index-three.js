@@ -150,25 +150,29 @@ function setupBook(gltf, position, iconPath, pageUrl) {
 function loadBooks() {
 
     loader.load('assets/models/Book1_IQExpander.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(-.8, 2.219, 0), 'assets/images/IqExpander/RestoredIcon.png', 'iqexpander.html');
+        setupBook(gltf, new THREE.Vector3(-1.0, 2.219, 0), 'assets/images/IqExpander/RestoredIcon.png', 'iqexpander.html');
     });
 
 
     loader.load('assets/models/Book1_Ludoie.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(-.4, 2.219, 0), 'assets/images/Ludoie/LudoieIcon.png', 'ludoie.html');
+        setupBook(gltf, new THREE.Vector3(-.6, 2.219, 0), 'assets/images/Ludoie/LudoieIcon.png', 'ludoie.html');
     });
 
 
     loader.load('assets/models/Book1_Metroid.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(0, 2.219, 0), 'assets/images/MetroidVR/MetroidVRIcon.png', 'metroidvr.html');
+        setupBook(gltf, new THREE.Vector3(-.2, 2.219, 0), 'assets/images/MetroidVR/MetroidVRIcon.png', 'metroidvr.html');
+    });
+
+    loader.load('assets/models/Book1_Thermal.glb', (gltf) => {
+        setupBook(gltf, new THREE.Vector3(0.2, 2.219, 0), 'assets/images/Ablation/AblationIcon.png', 'ablation.html');
     });
 
     loader.load('assets/models/Book1_PoissonLanterne.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(0.4, 2.219, 0), 'assets/images/PoissonLanterne/PoissonLanterneIcon.png', 'poisson_lanterne.html');
+        setupBook(gltf, new THREE.Vector3(0.6, 2.219, 0), 'assets/images/PoissonLanterne/PoissonLanterneIcon.png', 'poisson_lanterne.html');
     });
 
     loader.load('assets/models/Book1_GARVIS.glb', (gltf) => {
-        setupBook(gltf, new THREE.Vector3(0.8, 2.219, 0), 'assets/images/GARVIS/Logo.png', 'garvis.html');
+        setupBook(gltf, new THREE.Vector3(1.0, 2.219, 0), 'assets/images/GARVIS/Logo.png', 'garvis.html');
     });
 }
 

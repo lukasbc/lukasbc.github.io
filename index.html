@@ -6,7 +6,6 @@
     <script src="assets/js/pagelang.js"></script>
     <title>Portfolio Lukas</title>
     <link rel="icon" type="image/png" href="assets/images/PortfolioIcon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="assets/css/styleindex.css">
     <script type="importmap">
       {
@@ -43,7 +42,7 @@
         </nav>
       </div>
     </header>
-    <section id="about-me" class="about-me animate__animated animate__fadeInUp">
+    <section id="about-me" class="about-me">
       <img src="assets/images/Profile.png" alt="Lukas Busse-Côté" class="about-photo">
       <div class="about-content">
         <h2>
@@ -65,7 +64,7 @@
 
     <div class="connect-section" id="connect">
       <h2 class="connect-title">Contact</h2>
-      <div class="connect-card animate__animated animate__fadeInUp">
+      <div class="connect-card">
         <div class="connect-item">
           <span class="connect-label">Email</span>
           <a class="connect-value">lukas.bussecote@gmail.com</a>
@@ -106,15 +105,6 @@
         link: "ludoie.html"
       },
       {
-        title: "Poisson Lanterne",
-        description: {
-          fr: "Jeu vidéo de puzzle jouant sur les phénomènes lumineux.",
-          en: "A puzzle video game playing with light phenomena."
-        },
-        image: "assets/images/PoissonLanterne/PoissonLanterneIcon.png",
-        link: "poisson_lanterne.html"
-      },
-      {
         title: "Metroid Prime VR",
         description: {
           fr: "Une courte expérience VR non officielle de Metroid Prime pour Oculus Quest 2.",
@@ -122,6 +112,24 @@
         },
         image: "assets/images/MetroidVR/MetroidVRIcon.png",
         link: "metroidvr.html"
+      },
+      {
+        title: "Thermal Ablation",
+        description: {
+          fr: "Module Python pour 3D Slicer qui aide à planifier une ablation thermique du foie",
+          en: "A Python module for 3D Slicer that helps plan thermal ablation of the liver."
+        },
+        image: "assets/images/Ablation/AblationIcon.png",
+        link: "ablation.html"
+      },
+      {
+        title: "Poisson Lanterne",
+        description: {
+          fr: "Jeu vidéo de puzzle jouant sur les phénomènes lumineux.",
+          en: "A puzzle video game playing with light phenomena."
+        },
+        image: "assets/images/PoissonLanterne/PoissonLanterneIcon.png",
+        link: "poisson_lanterne.html"
       },
       {
         title: "G.A.R.V.I.S.",
@@ -142,7 +150,7 @@
       a.href = project.link;
 
       const div = document.createElement('div');
-      div.classList.add('project', 'animate__animated', 'animate__fadeInUp');
+      div.classList.add('project');
 
       const img = document.createElement('img');
       img.src = project.image;

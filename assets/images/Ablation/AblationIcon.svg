@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2027"/>
+      <stop offset="1" stop-color="#2c5364"/>
+    </linearGradient>
+    <radialGradient id="tumour" cx="0.45" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#e0ff8a"/>
+      <stop offset="1" stop-color="#2bbf35"/>
+    </radialGradient>
+  </defs>
+  <rect width="256" height="256" rx="0" fill="url(#bg)"/>
+  <circle cx="128" cy="128" r="78" fill="none" stroke="#8fe3f5" stroke-width="3" stroke-dasharray="8 6" opacity="0.8"/>
+  <circle cx="128" cy="128" r="44" fill="url(#tumour)"/>
+
+  
+  <line x1="240" y1="45" x2="142" y2="126" stroke="#5873fe" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="240" cy="45" r="6" fill="#f58e8e"/>
+  <circle cx="142" cy="126" r="6" fill="#fcff5c"/>
+
+  <line x1="25" y1="60" x2="120" y2="136" stroke="#ff1414" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="25" cy="60" r="6" fill="#f58e8e"/>
+  <circle cx="120" cy="136" r="6" fill="#fcff5c"/>
+</svg>

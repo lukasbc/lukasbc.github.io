@@ -1,0 +1,150 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  color: #eaeaea;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f2027;
+  background-image: url("../images/Ablation/Background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px 40px;
+  background: rgba(15, 32, 39, 0.75);
+  border-radius: 10px;
+  border: 2px solid rgba(120, 200, 220, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.2em;
+  margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+  margin-top: 30px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+p, ul {
+  line-height: 1.6;
+  font-size: large;
+  font-weight: lighter;
+}
+
+p {
+  margin: 15px 0;
+}
+
+ul {
+  margin: 20px 0;
+}
+
+b {
+  font-weight: bold;
+}
+
+a {
+  color: #8fe3f5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.content-image {
+  display: block;
+  width: 70%;
+  margin: 20px auto;
+  border-radius: 4px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 30px 0;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Swiper */
+.swiper {
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 6px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #8fe3f5;
+}
+
+.video-player iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+button {
+  display: block;
+  margin: 50px auto;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2c5364;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3a6d83;
+}
+
+.code-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+  padding: 12px 26px;
+  font-size: 17px;
+  color: #fff;
+  background-color: #2c5364;
+  border: 2px solid rgba(120, 200, 220, 0.5);
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.code-btn:hover {
+  background-color: #3a6d83;
+  text-decoration: none;
+}
